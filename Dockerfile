@@ -1,6 +1,6 @@
 FROM golang:1.15-buster
 ENV CF_CLI_VERSION="7.2.0"
-ENV YQ_VERSION="3.2.1"
+ENV YQ_VERSION="4.9.6"
 ENV SPRUCE_VERION="1.25.2"
 ENV SWAGGER_VERION="0.13.0"
 ENV CF_MGMT_VERSION="v1.0.43"
@@ -12,7 +12,7 @@ ENV CREDHUB_VERSION "2.8.0"
 ENV PACKAGES "awscli unzip curl openssl ca-certificates git jq util-linux gzip bash uuid-runtime coreutils vim tzdata openssh-client gnupg rsync make zip bc"
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends ${PACKAGES} && apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN curl -fL "https://packages.cloudfoundry.org/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C /usr/local/bin && \
-    curl -fL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq3 && \
+    curl -fL "https://github.com/mikefarah/yq/releases/download/3.2.1/yq_linux_amd64" -o /usr/local/bin/yq3 && \
     curl -fL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq && \
     curl -fL "https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERION}/spruce-linux-amd64" -o /usr/local/bin/spruce && \
     curl -fL "https://github.com/go-swagger/go-swagger/releases/download/${SWAGGER_VERION}/swagger_linux_amd64" -o /usr/local/bin/swagger && \
