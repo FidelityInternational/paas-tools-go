@@ -1,4 +1,4 @@
-FROM golang:1.19-bullseye
+FROM golang:1.19-bullseye 
 ENV CF_CLI_7_VERSION="7.5.0"
 ENV CF_CLI_8_VERSION="8.5.0"
 ENV YQ3_VERSION="3.2.1"
