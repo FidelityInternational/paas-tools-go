@@ -42,7 +42,7 @@ RUN mkdir -p /root/.ssh && \
     git config --global user.name "Docker container git-ssh" && \
     go install github.com/onsi/ginkgo/ginkgo@latest && \
     go install -mod=mod github.com/onsi/gomega && \
-    go install github.com/FidelityInternational/stopover@v1.0.1 && \
+    go install github.com/FidelityInternational/stopover@v1.0.2 && \
     go install github.com/FidelityInternational/go-check-certs@latest && \
     rm -rf $GOPATH/src && \
     sed -i 's/^CipherString/#CipherString/g' /etc/ssl/openssl.cnf
