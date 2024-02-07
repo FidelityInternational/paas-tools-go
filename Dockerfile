@@ -1,16 +1,16 @@
-FROM golang:1.20-bullseye
-ENV CF_CLI_7_VERSION="7.7.4"
-ENV CF_CLI_8_VERSION="8.7.4"
+FROM golang:1.21-bullseye
+ENV CF_CLI_7_VERSION="7.7.7"
+ENV CF_CLI_8_VERSION="8.7.7"
 ENV YQ3_VERSION="3.2.1"
 ENV YQ_VERSION="4.26.1"
 ENV SPRUCE_VERION="1.25.2"
 ENV SWAGGER_VERION="0.13.0"
 ENV CF_MGMT_VERSION="1.0.43"
-ENV BOSH_VERSION="7.4.1"
+ENV BOSH_VERSION="7.5.2"
 ENV GOVC_VERSION="0.26.0"
-ENV BBR_VERSION="1.9.38"
+ENV BBR_VERSION="1.9.58"
 ENV MC_VERSION="RELEASE.2020-04-25T00-43-23Z"
-ENV CREDHUB_VERSION "2.9.12"
+ENV CREDHUB_VERSION "2.9.25"
 ENV TERRAFORM_VERSION "1.1.6"
 ENV BLUE_GREEN_VERSION "1.4.0"
 ENV AUTOPILOT_VERSION "0.0.8"
@@ -25,10 +25,10 @@ RUN curl -fL "https://s3-us-west-1.amazonaws.com/v7-cf-cli-releases/releases/v${
     curl -fL "https://github.com/pivotalservices/cf-mgmt/releases/download/v${CF_MGMT_VERSION}/cf-mgmt-linux" -o /usr/local/bin/cf-mgmt && \
     curl -fL "https://github.com/pivotalservices/cf-mgmt/releases/download/v${CF_MGMT_VERSION}/cf-mgmt-config-linux" -o /usr/local/bin/cf-mgmt-config && \
     curl -fL "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-${BOSH_VERSION}-linux-amd64" -o /usr/local/bin/bosh && \
-    curl -fL "https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases/download/v${BBR_VERSION}/bbr-${BBR_VERSION}-linux-amd64" -o /usr/local/bin/bbr && \
+    curl -fL "https://github.com/cloudfoundry/bosh-backup-and-restore/releases/download/v${BBR_VERSION}/bbr-${BBR_VERSION}-linux-amd64" -o /usr/local/bin/bbr && \
     curl -fL "https://github.com/vmware/govmomi/releases/download/v${GOVC_VERSION}/govc_Linux_x86_64.tar.gz" | tar -zx -C /usr/local/bin && \
     curl -fL "https://dl.min.io/client/mc/release/linux-amd64/archive/mc.${MC_VERSION}" > /usr/local/bin/mc && \
-    curl -fL "https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/${CREDHUB_VERSION}/credhub-linux-${CREDHUB_VERSION}.tgz" | tar -zx -C /usr/local/bin && \
+    curl -fL "https://github.com/cloudfoundry/credhub-cli/releases/download/${CREDHUB_VERSION}/credhub-linux-amd64-${CREDHUB_VERSION}.tgz" | tar -zx -C /usr/local/bin && \
     curl -fL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" | zcat > /usr/local/bin/terraform && \
     chmod +x /usr/local/bin/*
 RUN ln /usr/bin/uuidgen /usr/local/bin/uuid && \
