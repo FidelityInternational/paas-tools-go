@@ -1,16 +1,16 @@
-FROM golang:1.23-bullseye
+FROM golang:1.23-bookworm
 ENV CF_CLI_7_VERSION="7.8.0"
-ENV CF_CLI_8_VERSION="8.9.0"
+ENV CF_CLI_8_VERSION="8.13.0"
 ENV YQ3_VERSION="3.2.1"
 ENV YQ_VERSION="4.26.1"
-ENV SPRUCE_VERION="1.25.2"
-ENV SWAGGER_VERION="0.13.0"
+ENV SPRUCE_VESRION="1.25.2"
+ENV SWAGGER_VESRION="0.13.0"
 ENV CF_MGMT_VERSION="v1.0.43"
-ENV BOSH_VERSION="7.8.6"
-ENV GOVC_VERSION="0.26.0"
-ENV BBR_VERSION="1.9.73"
+ENV BOSH_VERSION="7.9.5"
+ENV GOVC_VERSION="0.48.1"
+ENV BBR_VERSION="1.9.74"
 ENV MC_VERSION="RELEASE.2020-04-25T00-43-23Z"
-ENV CREDHUB_VERSION "2.9.41"
+ENV CREDHUB_VERSION "2.9.45"
 ENV TERRAFORM_VERSION "1.1.6"
 ENV BLUE_GREEN_VERSION "1.4.0"
 ENV AUTOPILOT_VERSION "0.0.8"
@@ -20,8 +20,8 @@ RUN curl -fL "https://s3-us-west-1.amazonaws.com/v7-cf-cli-releases/releases/v${
 RUN curl -fL "https://s3-us-west-1.amazonaws.com/v8-cf-cli-releases/releases/v${CF_CLI_8_VERSION}/cf8-cli_${CF_CLI_8_VERSION}_linux_x86-64.tgz" | tar -zx -C /usr/local/bin
 RUN curl -fL "https://github.com/mikefarah/yq/releases/download/${YQ3_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq3
 RUN curl -fL "https://github.com/mikefarah/yq/releases/download/v${YQ_VERSION}/yq_linux_amd64" -o /usr/local/bin/yq
-RUN curl -fL "https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERION}/spruce-linux-amd64" -o /usr/local/bin/spruce
-RUN curl -fL "https://github.com/go-swagger/go-swagger/releases/download/${SWAGGER_VERION}/swagger_linux_amd64" -o /usr/local/bin/swagger
+RUN curl -fL "https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64" -o /usr/local/bin/spruce
+RUN curl -fL "https://github.com/go-swagger/go-swagger/releases/download/${SWAGGER_VERSION}/swagger_linux_amd64" -o /usr/local/bin/swagger
 RUN curl -fL "https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/${CF_MGMT_VERSION}/cf-mgmt-linux" -o /usr/local/bin/cf-mgmt
 RUN curl -fL "https://github.com/vmware-tanzu-labs/cf-mgmt/releases/download/${CF_MGMT_VERSION}/cf-mgmt-config-linux" -o /usr/local/bin/cf-mgmt-config
 RUN curl -fL "https://github.com/cloudfoundry/bosh-cli/releases/download/v${BOSH_VERSION}/bosh-cli-${BOSH_VERSION}-linux-amd64" -o /usr/local/bin/bosh
