@@ -1,4 +1,4 @@
-FROM golang:1.23-bookworm
+FROM golang:1.24-bookworm
 ENV CF_CLI_7_VERSION="7.8.0"
 ENV CF_CLI_8_VERSION="8.14.1"
 ENV YQ3_VERSION="3.2.1"
